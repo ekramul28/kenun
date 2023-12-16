@@ -5,7 +5,7 @@ import ContactUs from "../Contact/Contact";
 const Home = () => {
 
     return (
-        <div>
+        <div className="dark:bg-slate-800">
             <Banner></Banner>
             <AboutUs></AboutUs>
             <ContactUs></ContactUs>
