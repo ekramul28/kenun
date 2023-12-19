@@ -1,8 +1,23 @@
 import { Link } from "react-router-dom";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
 const Register = () => {
+    const axiosPublic = useAxiosPublic();
+
+    const { data: division = [] } = useQuery({
+        queryKey: ['division'],
+        queryFn: async () => {
+            const res = await axiosPublic('/division')
+            return res.data;
+        }
+    })
+    console.log(division)
     const handelForm = () => {
 
+    }
+    const handelDivision = (e) => {
+        console.log(e.target.value)
     }
     return (
         <div className="hero min-h-screen dark:bg-slate-800 ">
@@ -54,11 +69,11 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text dark:text-white">Division</span>
                                     </label>
-                                    <select name="division" className="select select-bordered w-full  input  rounded-none">
-                                        <option disabled selected required>Select Your Division</option>
-                                        {/* {
-                                        AllDivision.map(division => <option key={division.id}>{division.name}</option>)
-                                    } */}
+                                    <select name="division" className="select select-bordered w-full  input  rounded-none" onClick={handelDivision} >
+                                        <option disabled selected required >Select Your Division</option>
+                                        {
+                                            division.map(division => <option key={division._id} value={division.id} >{division?.name}</option>)
+                                        }
 
                                     </select>
                                 </div>
