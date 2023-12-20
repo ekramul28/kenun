@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
 const Register = () => {
+    const [AllDistrict, setAllDistrict] = useState([])
+    const [AllUpazilas, setAllUpazilas] = useState([])
     const axiosPublic = useAxiosPublic();
-
     const { data: division = [] } = useQuery({
         queryKey: ['division'],
         queryFn: async () => {
@@ -12,13 +14,38 @@ const Register = () => {
             return res.data;
         }
     })
-    console.log(division)
-    const handelForm = () => {
 
+    const handelDivision = async (e) => {
+        const index = e.target.selectedIndex;
+        const el = e.target.childNodes[index]
+        const option = el.getAttribute('id');
+        console.log(option);
+        const res = await axiosPublic.get(`/districts/${option}`)
+        setAllDistrict(res.data)
     }
-    const handelDivision = (e) => {
-        console.log(e.target.value)
+    const handelDistrict = async (e) => {
+        const index = e.target.selectedIndex;
+        const el = e.target.childNodes[index]
+        const option = el.getAttribute('id');
+        console.log(option);
+        const res = await axiosPublic.get(`/upazilas/${option}`)
+        setAllUpazilas(res.data)
     }
+
+    const handelForm = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const confirmPassword = form.ConfirmPassword.value;
+        const division = form.division.value;
+        const district = form.district.value;
+        const upazilas = form.upazilas.value;
+        const photoURL = form.imgUrl.files[0];
+        console.log({ name, email, password, confirmPassword, division, district, upazilas, photoURL })
+    }
+
     return (
         <div className="hero min-h-screen dark:bg-slate-800 ">
             <div className="hero-content  flex-col w-80 md:w-[400px]  lg:w-[900px]">
@@ -69,43 +96,39 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text dark:text-white">Division</span>
                                     </label>
-                                    <select name="division" className="select select-bordered w-full  input  rounded-none" onClick={handelDivision} >
-                                        <option disabled selected required >Select Your Division</option>
+                                    <select name="division" defaultValue={'DEFAULT'} className="select select-bordered w-full  input  rounded-none" onClick={handelDivision}>
+                                        <option disabled selected required value="DEFAULT" >Select Your Division</option>
                                         {
-                                            division.map(division => <option key={division._id} value={division.id} >{division?.name}</option>)
+                                            division.map(division => <option key={division._id} value={division?.name} id={division?.id} >{division?.name}</option>)
                                         }
 
                                     </select>
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text dark:text-white" >Division</span>
+                                        <span className="label-text dark:text-white" >District</span>
                                     </label>
-                                    <select name="district" className="select select-bordered w-full  input  rounded-none">
+                                    <select name="district" className="select select-bordered w-full  input  rounded-none" onClick={handelDistrict}>
                                         <option disabled selected required>Select Your District</option>
-                                        {/* {
-                                        AllDistrict.map(district => <option key={district.id}>{district?.name}</option>)
-                                    } */}
+                                        {
+                                            AllDistrict.map(district => <option key={district._id} value={district?.name} id={district.id}>{district?.name}</option>)
+                                        }
 
                                     </select>
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text dark:text-white">Blood Group</span>
+                                        <span className="label-text dark:text-white" >upazilas</span>
                                     </label>
-                                    <select name="blood" className="select select-bordered w-full  input  rounded-none">
-                                        <option disabled selected>Select Your Blood Group</option>
-                                        <option >A+</option>
-                                        <option >A- </option>
-                                        <option >B+</option>
-                                        <option >B- </option>
-                                        <option >AB+ </option>
-                                        <option >AB- </option>
-                                        <option >O+</option>
-                                        <option >O- </option>
+                                    <select name="upazilas" className="select select-bordered w-full  input  rounded-none" >
+                                        <option disabled selected required>Select Your upazilas</option>
+                                        {
+                                            AllUpazilas.map(upazilas => <option key={upazilas._id} value={upazilas?.name} id={upazilas.id}>{upazilas?.name}</option>)
+                                        }
 
                                     </select>
                                 </div>
+
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text dark:text-white">imgUrl</span>
