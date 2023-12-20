@@ -1,10 +1,33 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { useState } from "react";
+import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Login = () => {
-
-    const handelForm = () => {
-
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [error, setError] = useState([])
+    const { loginUser } = useAuth()
+    const handelForm = async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        setError('')
+        try {
+            const result = await loginUser(email, password)
+            console.log(result)
+            if (result.user) {
+                form.reset();
+                Swal.fire('Login Successful');
+                navigate((location?.state?.pathname) ? location?.state.pathname : '/')
+            }
+        } catch {
+            error => {
+                setError(error.message);
+            }
+        }
     }
 
 
@@ -41,7 +64,7 @@ const Login = () => {
                                     <p>You do not have an Account Please <Link to="/register" className="text-sky-500 text-2xl">Register</Link></p>
                                 </div>
                                 <div className="text-center">
-                                    <h1 className="text-red-500">error</h1>
+                                    <h1 className="text-red-500">{error}</h1>
                                 </div>
                                 {/* <div className="divider">OR</div>
                             <div onClick={googleClick} className=" border-2 border-white p-4 rounded-xl mt-5">

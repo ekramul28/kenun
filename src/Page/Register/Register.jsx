@@ -1,9 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import Swal from "sweetalert2";
+import imageUpload from "../../api/utils";
+import useAuth from "../../Hooks/useAuth";
 
 const Register = () => {
+    const navigate = useNavigate()
+    const { registration, updateUserProfile } = useAuth()
+    const [registerError, setRegisterError] = useState('');
     const [AllDistrict, setAllDistrict] = useState([])
     const [AllUpazilas, setAllUpazilas] = useState([])
     const axiosPublic = useAxiosPublic();
@@ -32,7 +38,7 @@ const Register = () => {
         setAllUpazilas(res.data)
     }
 
-    const handelForm = (e) => {
+    const handelForm = async (e) => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
@@ -44,6 +50,39 @@ const Register = () => {
         const upazilas = form.upazilas.value;
         const photoURL = form.imgUrl.files[0];
         console.log({ name, email, password, confirmPassword, division, district, upazilas, photoURL })
+        setRegisterError('')
+        if (password.length < 6) {
+            return Swal.fire('Password must be at least 6 characters');
+
+        } if (!/[A-Z]/.test(password)) {
+            return Swal.fire('Password must be a Uppercase letter');
+
+        }
+        if (!/[a-z]/.test(password)) {
+            return Swal.fire('Password must be a Lowercase letter');
+
+        }
+        if (!/[0-9]/.test(password)) {
+            return Swal.fire('Password must be a number ')
+
+        }
+        if (!(password == confirmPassword)) {
+            return Swal.fire('password or confirmPassword not equal ')
+        }
+        try {
+            const image = await imageUpload(photoURL)
+            const result = await registration(email, password);
+            console.log(result);
+            console.log(image);
+            await updateUserProfile(name, image?.data?.display_url)
+            if (result?.user?.email) {
+                form.reset();
+                Swal.fire('Register Successful')
+                navigate((location?.state?.pathname) ? location?.state.pathname : '/')
+            }
+        } catch (error) {
+            setRegisterError(error?.message)
+        }
     }
 
     return (
@@ -133,7 +172,7 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text dark:text-white">imgUrl</span>
                                     </label>
-                                    <input type="file" placeholder="imgUrl" name="imgUrl" className="file-input  input-bordered rounded-none" required />
+                                    <input type="file" placeholder="imgUrl" name="imgUrl" className="file-input  input-bordered rounded-none " required />
                                 </div>
 
                             </div>
@@ -145,7 +184,7 @@ const Register = () => {
                                 <p className="text-xl dark:text-white">you have Account  please<Link to="/login" className=" text-2xl ml-3 text-sky-500">login</Link></p>
                             </div>
                             <div className="text-center">
-                                <h1 className="text-red-500">registerError</h1>
+                                <h1 className="text-red-500">{registerError}</h1>
                             </div>
                         </div>
                     </form>
