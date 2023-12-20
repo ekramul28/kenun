@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-
+import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+import { CgProfile } from "react-icons/cg";
+import { FiLogOut } from "react-icons/fi";
+import { CiDark } from "react-icons/ci";
+import { MdSunny } from "react-icons/md";
 const Navbar = () => {
+    const { user } = useAuth();
+    console.log(user)
     const link = <>
         <li className="font-medium text-lg dark:text-white" ><NavLink to="/">Home</NavLink></li>
         <li className="font-medium text-lg dark:text-white"><NavLink to="/blog">Blog</NavLink></li>
@@ -22,6 +28,8 @@ const Navbar = () => {
 
     const handelClick = () => {
         setTheme(theme === "dark" ? "light" : "dark");
+    };
+    const handelButton = () => {
     };
 
 
@@ -45,15 +53,47 @@ const Navbar = () => {
                         {link}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn">Button</a>
+                <div className="navbar-end gap-2">
+                    <div className="hidden md:block dark:text-white ">
+                        {
+                            user && <p className="font-semibold">{user?.displayName}</p>
+                        }
+                    </div>
 
-                    <input onClick={handelClick} type="checkbox" className="toggle" />
+                    {
+                        user && <>
+
+                            <details className="dropdown dropdown-bottom dropdown-end ">
+                                <summary className="flex "><img className="w-10 h-10 md:w-14 md:h-14 mx-1  rounded-full" src={user?.photoURL} alt="" /></summary>
+                                <div className="my-4 -mr-8 md:-mr-2 menu dropdown-content    ">
+                                    <div className="dark:bg-slate-800 dark:text-white p-6 bg-slate-100 shadow-2xl rounded-box">
+                                        <p className="flex justify-center text-xl">{user?.email}</p>
+                                        <div className="flex justify-center items-center">
+                                            <img className="w-10 h-10 md:w-24 md:h-24 mt-5 mx-1  rounded-full " src={user?.photoURL} alt="" />
+                                        </div>
+                                        <p className="flex justify-center text-2xl my-6">{user?.displayName}</p>
+                                        <div className="flex justify-center items-center gap-3 mt-4 mb-2">
+                                            <Link to="/dashboard/profile" className=" btn  rounded-none text-xl md:w-44 text-white dark:bg-sky-500 bg-slate-800 dark:text-white border-none "><CgProfile></CgProfile> Profile</Link>
+                                            <button onClick={handelButton} className=" btn  rounded-none text-xl md:w-44 text-white dark:bg-sky-500 bg-slate-800 dark:text-white border-none "><FiLogOut></FiLogOut>Sign out</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+                        </>
+
+                    }
+                    <div className="text-3xl dark:text-white">
+                        {
+                            theme === "dark" ? <CiDark onClick={handelClick}></CiDark> : <MdSunny onClick={handelClick}></MdSunny>
+                        }
+                    </div>
+
+
 
                 </div>
-            </div>
+            </div >
 
-        </div>
+        </div >
     );
 };
 
