@@ -38,3 +38,10 @@ body {
     url("https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
 }
+
+.gradient {
+  background: linear-gradient(to right,
+      rgb(0 0 0 / 84%),
+      rgb(175 12 12 / 35%)),
+    url("https://img.freepik.com/free-vector/illustration-new-year-decoration_53876-37431.jpg?size=626&ext=jpg&uid=R108499404&ga=GA1.1.480160555.1688190912&semt=sph");
+}

@@ -1,12 +1,12 @@
 import { FaLocationArrow, FaPhone } from 'react-icons/fa';
 import { MdEmail } from "react-icons/md";
+import InputButton from '../../Components/Input/InputButton';
 
 const ContactUs = () => {
     return (
         <div>
-            <div className="hero h-[800px] lg:h-[600px] " style={{ backgroundImage: 'url(https://i.ib.co/C9FpfCZ/tp227-poster-12-googlefocus.jpg)' }}>
-                <div className="hero-overlay bg-opacity-90"></div>
-                <div className="hero-content text-center text-neutral-content">
+            <div className="hero h-[700px] lg:h-[500px] gradient ">
+                <div className="hero-content text-center text-white">
                     <div className="">
                         <h1 className="mb-5 text-5xl font-bold ">Contact Us</h1>
                         <p className="mb-5">Call our toll-free number or visit our website to connect with our dedicated customer service team. Were here to assist you 24/7.</p>
@@ -43,17 +43,15 @@ const ContactUs = () => {
                                 </div>
                             </div>
 
-                            <div style={{ height: '300px', backgroundColor: 'darkgreen' }}>
-                                <div >
-                                    <div className="bg-white p-14  ">
-                                        <h1 className="text-black text-xl my-2">send Message</h1>
-                                        <input className="border-b-2 border-black my-3 w-full" type="text" name="name" id="" placeholder="Full Name" /> <br />
-                                        <input className="border-b-2 border-black my-3 w-full" placeholder="Email" type="text" name="email" id="" /><br />
-                                        <input className="border-b-2 border-black my-3 w-full" type="text" placeholder="Type Your Message" name="message" id="" /><br />
-                                        <input className='text-white bg-red-600 btn border-none lg:my-3' type="submit" value="Send" />
-                                    </div>
-
+                            <div className='lg:w-1/2'>
+                                <div className="  ">
+                                    <h1 className="text-xl my-2 text-white">send Message</h1>
+                                    <InputButton type="text" name="name" placeholderName="Full Name" />
+                                    <InputButton type="text" name="email" placeholderName="Type Your email " />
+                                    <InputButton type="text" name="message" placeholderName="Type Your Message " />
+                                    <input className='text-whit btn border-none lg:my-3' type="submit" value="Send" />
                                 </div>
+
                             </div>
 
 
