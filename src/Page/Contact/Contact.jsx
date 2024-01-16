@@ -45,7 +45,7 @@ const ContactUs = () => {
 
                             <div className='lg:w-1/2'>
                                 <div className="  ">
-                                    <h1 className="text-xl my-2 text-white">send Message</h1>
+                                    <h1 className="text-xl my-2 text-white uppercase font-bold">send Message</h1>
                                     <InputButton type="text" name="name" placeholderName="Full Name" />
                                     <InputButton type="text" name="email" placeholderName="Type Your email " />
                                     <InputButton type="text" name="message" placeholderName="Type Your Message " />

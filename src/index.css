@@ -42,6 +42,6 @@ body {
 .gradient {
   background: linear-gradient(to right,
       rgb(0 0 0 / 84%),
-      rgb(175 12 12 / 35%)),
+      rgb(175 12 12 / 15%)),
     url("https://img.freepik.com/free-vector/illustration-new-year-decoration_53876-37431.jpg?size=626&ext=jpg&uid=R108499404&ga=GA1.1.480160555.1688190912&semt=sph");
 }
