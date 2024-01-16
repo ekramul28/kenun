@@ -23,10 +23,10 @@ const Login = () => {
                 Swal.fire('Login Successful');
                 navigate((location?.state?.pathname) ? location?.state.pathname : '/')
             }
-        } catch {
-            error => {
-                setError(error.message);
-            }
+        } catch (error) {
+            setError(error.message);
+            console.log(error.message)
+
         }
     }
 
