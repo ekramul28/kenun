@@ -36,10 +36,12 @@ const BrandsSection = () => {
         },
     ]
     return (
-        <div className="w-[90%] lg:w-[70%] mx-auto flex flex-wrap items-center  justify-center sm:justify-evenly h-[100px] sm:h-[150px] gap-2 sm:gap-0">
-            {allBrands.map(({ id, image }) => (
-                <img key={id} src={image} alt="" className="h-[30%] lg:h-[40%]" />
-            ))}
+        <div className="dark:bg-white" >
+            <div className="w-[90%] lg:w-[70%] mx-auto flex flex-wrap items-center  justify-center sm:justify-evenly h-[100px] sm:h-[150px] gap-2 sm:gap-0 ">
+                {allBrands.map(({ id, image }) => (
+                    <img key={id} src={image} alt="" className="h-[30%] lg:h-[40%]" />
+                ))}
+            </div>
         </div>
     );
 };

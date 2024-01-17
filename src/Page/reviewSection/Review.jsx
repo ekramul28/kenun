@@ -15,7 +15,7 @@ const Review = () => {
             "name": "Elegance Elite",
             "description": "A sophisticated timepiece with a classic design, perfect for formal occasions.",
             "image": "https://img.freepik.com/free-photo/handsome-businessman-suit-glasses-cross-arms-chest-look_176420-21750.jpg?size=626&ext=jpg&ga=GA1.2.480160555.1688190912&semt=sph",
-            "rating": 4,
+            "rating": 5.0,
             "brand": "Timeless Watches"
         },
         {
@@ -23,7 +23,7 @@ const Review = () => {
             "name": "TechMaster 2000",
             "description": "A futuristic smartwatch with advanced features, blending style and functionality.",
             "image": "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.2.480160555.1688190912&semt=sph",
-            "rating": 5,
+            "rating": 4.7,
             "brand": "Innovate Tech"
         },
         {
@@ -47,7 +47,7 @@ const Review = () => {
             "name": "Fashion Fusion",
             "description": "A trendy and stylish watch that seamlessly combines fashion and functionality.",
             "image": "https://img.freepik.com/free-photo/happy-good-looking-man-glasses-pointing-finger-left_176420-21192.jpg?size=626&ext=jpg&ga=GA1.1.480160555.1688190912&semt=sph",
-            "rating": 5,
+            "rating": 5.0,
             "brand": "StyleCraft Timepieces"
         }
     ]
@@ -67,6 +67,7 @@ const Review = () => {
                 // navigation={true}
                 modules={[Autoplay, Pagination, Navigation, Scrollbar, EffectCube]}
                 className="mySwiper"
+
             >
                 <div >
                     {
