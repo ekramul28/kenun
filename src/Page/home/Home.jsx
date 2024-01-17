@@ -2,6 +2,7 @@ import AboutUs from "../About/About";
 import Banner from "../Banner/Banner";
 import BrandsSection from "../BrandsSection/BrandsSection";
 import ContactUs from "../Contact/Contact";
+import Review from "../reviewSection/Review";
 
 const Home = () => {
     return (
@@ -9,6 +10,7 @@ const Home = () => {
             <div className="max-w-7xl mx-auto">
                 <Banner></Banner>
                 <BrandsSection></BrandsSection>
+                <Review></Review>
                 <AboutUs></AboutUs>
                 <ContactUs></ContactUs>
             </div>
