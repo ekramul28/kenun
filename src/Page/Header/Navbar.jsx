@@ -27,21 +27,18 @@ const Navbar = () => {
             PathName: "/"
         },
         {
-            name: "Blog",
-            PathName: "/blog"
+            name: "Collection",
+            PathName: "/collection"
         },
         {
-            name: "Product",
-            PathName: "/product"
+            name: "Cart",
+            PathName: "/cart"
         },
         {
-            name: "Deshbord",
-            PathName: "/deshbord"
+            name: "Checkout",
+            PathName: "/checkout"
         },
-        {
-            name: "Card",
-            PathName: "/card"
-        }
+
     ]
 
     const [theme, setTheme] = useState("dark");
@@ -74,13 +71,13 @@ const Navbar = () => {
         >
 
 
-            <div className="navbar max-w-7xl mx-auto">
+            <div className="navbar max-w-7xl mx-auto h-[70px]">
                 <div className="navbar-start  max-w-7xl mx-auto">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden dark:text-sky-500">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </div>
-                        <ul tabIndex={0} className="menu  menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 dark:bg-slate-800 border rounded-box w-52">
+                        <ul tabIndex={0} className="menu  menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 dark:bg-slate-800 border rounded-box w-52 ">
 
 
                             {
@@ -90,19 +87,19 @@ const Navbar = () => {
                             }
                         </ul>
                     </div>
-                    <Link to="/" className="font-bold underline text-xl dark:text-white">KENUN</Link>
+                    <Link to="/" className="font-bold underline text-2xl dark:text-white">KENUN</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex ">
                     {/* <ul className="menu menu-horizontal px-1"> */}
-                    <ul className="hidden lg:flex justify-center gap-6 w-[100%]  items-center pl-[5%]">
+                    <ul className="hidden lg:flex justify-center gap-6 w-[100%]  items-center pl-[5%] ">
                         {NavItems.map(({ name, PathName }) => (
                             <li key={name} >
                                 <NavLink
                                     to={PathName}
                                     className={({ isActive }) =>
                                         isActive
-                                            ? "border-b border-black text-[15px] dark:border-white dark:text-white"
-                                            : "nav-button  text-[15px] dark:text-white border-black hover:border-b dark:border-white hover:ease-out hover:delay-200 hover:duration-500 hover:cursor-pointer		"
+                                            ? "border-b border-black text-lg  dark:border-white dark:text-white font-semibold"
+                                            : "nav-button  text-lg  dark:text-white border-black hover:border-b font-semibold dark:border-white hover:ease-out hover:delay-200 hover:duration-500 hover:cursor-pointer"
 
                                     }
                                 >

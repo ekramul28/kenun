@@ -33,7 +33,6 @@ const Register = () => {
         const index = e.target.selectedIndex;
         const el = e.target.childNodes[index]
         const option = el.getAttribute('id');
-        console.log(option);
         const res = await axiosPublic.get(`/upazilas/${option}`)
         setAllUpazilas(res.data)
     }
@@ -135,10 +134,10 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text dark:text-white">Division</span>
                                     </label>
-                                    <select name="division" defaultValue={'DEFAULT'} className="select select-bordered w-full  input  rounded-none" onClick={handelDivision}>
+                                    <select name="division" className="select select-bordered w-full  input  rounded-none" onClick={handelDivision}>
                                         <option disabled selected required value="DEFAULT" >Select Your Division</option>
                                         {
-                                            division.map(division => <option key={division._id} value={division?.name} id={division?.id} >{division?.name}</option>)
+                                            division.map(division => <option key={division._id} className="text-black " value={division?.name} id={division?.id} >{division?.name}</option>)
                                         }
 
                                     </select>

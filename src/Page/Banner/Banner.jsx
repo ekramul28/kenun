@@ -1,4 +1,3 @@
-import { Box } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import BannerText from '../../Components/BannerText';
 // import Banner from '../BrandsSection/Banner';
@@ -9,7 +8,6 @@ const Banner = () => {
                 <Grid item xs={8} >
                     <BannerText image='banner1' text="Digital Watch"></BannerText>
                     {/* <Box className="banner1 h-[300px]  hover:bg-[0%] duration-[.6s] cursor-pointer " >
-
                         <h1 className=' text-white  pt-[250px] pr-10 text-end text-2xl font-bold ]'>
                             Digital Watch
                         </h1>

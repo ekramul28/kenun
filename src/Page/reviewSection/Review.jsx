@@ -53,34 +53,39 @@ const Review = () => {
     ]
 
     return (
-        <div className='w-full h-[500px] bg-gray-200 flex justify-center items-center dark:bg-slate-900'>
-            <Swiper
-                spaceBetween={30}
-                centeredSlides={true}
-                autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                }}
-                // pagination={{
-                //     clickable: true,
-                // }}
-                // navigation={true}
-                modules={[Autoplay, Pagination, Navigation, Scrollbar, EffectCube]}
-                className="mySwiper"
+        <div className='w-full  bg-gray-200  dark:bg-slate-900'>
+            <div className='max-w-7xl mx-auto'>
 
-            >
-                <div >
-                    {
-                        AllReview.map(Review => (
-                            <SwiperSlide key={Review.id}>
-                                <ReviewCard Review={Review}></ReviewCard>
-                            </SwiperSlide>
+                <h1 className='font-bold text-2xl text-center pt-8 dark:text-white'>Word's Of Satisfaction</h1>
+                <div className='flex justify-center items-center h-[600px]'>
 
-                        ))
-                    }
-                </div>
+                    <Swiper
+                        spaceBetween={30}
+                        centeredSlides={true}
+                        autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: false,
+                        }}
+                        // pagination={{
+                        //     clickable: true,
+                        // }}
+                        // navigation={true}
+                        modules={[Autoplay, Pagination, Navigation, Scrollbar, EffectCube]}
+                        className="mySwiper"
 
-                {/* <SwiperSlide>Slide 2</SwiperSlide>
+                    >
+                        <div >
+                            {
+                                AllReview.map(Review => (
+                                    <SwiperSlide key={Review.id}>
+                                        <ReviewCard Review={Review}></ReviewCard>
+                                    </SwiperSlide>
+
+                                ))
+                            }
+                        </div>
+
+                        {/* <SwiperSlide>Slide 2</SwiperSlide>
                 <SwiperSlide>Slide 3</SwiperSlide>
                 <SwiperSlide>Slide 4</SwiperSlide>
                 <SwiperSlide>Slide 5</SwiperSlide>
@@ -88,11 +93,9 @@ const Review = () => {
                 <SwiperSlide>Slide 7</SwiperSlide>
                 <SwiperSlide>Slide 8</SwiperSlide>
                 <SwiperSlide>Slide 9</SwiperSlide> */}
-            </Swiper>
-
-
-
-
+                    </Swiper>
+                </div>
+            </div>
         </div>
     );
 };

@@ -16,7 +16,6 @@ const ReviewCard = ({ Review }) => {
                             precision={0.5}
                             readOnly
                         />
-                        {/* <Rating name={name} defaultValue={2} precision={rating} readOnly /> */}
                         <p>{description}</p>
                         <h1 className="text-xl font-bold my-2">{name}</h1>
                         <h1>{brand}</h1>
