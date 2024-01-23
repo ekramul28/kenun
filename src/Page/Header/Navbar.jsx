@@ -5,6 +5,7 @@ import { MdSunny } from "react-icons/md";
 import { useScroll, motion, useMotionValueEvent } from "framer-motion";
 import SimpleProfile from "../Profile/SimpleProfile";
 import useAuth from "../../Hooks/useAuth";
+import Button from "../../Components/Button/Button";
 
 const Navbar = () => {
     const { user, } = useAuth();
@@ -79,7 +80,6 @@ const Navbar = () => {
                         </div>
                         <ul tabIndex={0} className="menu  menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 dark:bg-slate-800 border rounded-box w-52 ">
 
-
                             {
                                 NavItems.map(({ name, PathName }) => <div key={name}>
                                     <li className="font-medium text-lg dark:text-white dark:bg-slate-800"> <NavLink to={PathName}>{name}</NavLink></li>
@@ -113,24 +113,34 @@ const Navbar = () => {
                 <div className="navbar-end gap-2">
                     <div className="hidden md:block dark:text-white ">
                         {
-                            user && <p className="font-semibold">{user?.displayName}</p>
+                            user &&
+                            <p className="font-semibold">{user?.displayName}</p>
                         }
                     </div>
 
                     {
-                        user && <>
-
+                        user &&
+                        <>
                             <SimpleProfile></SimpleProfile>
                         </>
-
                     }
                     <div className="text-3xl dark:text-white hover:cursor-pointer">
                         {
-                            theme === "dark" ? <CiDark onClick={handelClick}></CiDark> : <MdSunny onClick={handelClick}></MdSunny>
+                            theme === "dark"
+                                ? <CiDark onClick={handelClick}></CiDark>
+                                : <MdSunny onClick={handelClick}></MdSunny>
                         }
                     </div>
                     {
-                        user ? '' : <Link to="/login" className="text-white dark:bg-sky-500  py-2 px-4 rounded-full bg-black font-medium ">Login</Link>
+                        user
+                            ? ''
+                            : <Link to="/login"
+                            >
+                                <Button className="rounded-full">
+                                    Login
+                                </Button>
+
+                            </Link>
                     }
                 </div>
             </div >

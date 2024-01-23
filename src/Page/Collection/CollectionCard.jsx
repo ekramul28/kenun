@@ -1,10 +1,4 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import Button from "../../Components/Button/Button";
 
 const CollectionCard = () => {
     const watches = {
@@ -48,24 +42,29 @@ const CollectionCard = () => {
 
     return (
         <div >
-            <div className="card w-96 shadow rounded-none">
-                <figure><img className='h-60 image-full object-cover w-full mx-auto' src={watches.image1} alt="Shoes" /></figure>
-                <div className="card-body">
+            <div className="card  shadow rounded-none">
+                <figure>
+                    <img className=' image-full object-cover w-full mx-auto' src={watches.image1} alt="Shoes" />
+                </figure>
+                <div className="card-body dark:bg-slate-900">
                     <h2 className="card-title">
                         <p>{watches.name}</p>
                         {/* <div className="badge badge-secondary">NEW</div> */}
                     </h2>
                     <p>${watches.price}</p>
-
-                    <div className="card-actions justify-end">
-                        <div>
+                    <div className="flex justify-between items-center">
+                        <div >
+                            <Button>Details</Button>
+                        </div>
+                        <div >
                             {
                                 (watches.availability === 'In Stock') ?
-                                    <p className='w-5 h-5 rounded-full bg-black'></p>
-                                    : <p className='w-5 h-5 rounded-full bg-red-700'></p>
+                                    <p className='w-4 h-4 rounded-full dark:bg-sky-500 bg-black'></p>
+                                    : <p className='w-4 h-4 rounded-full bg-red-700'></p>
                             }
 
                         </div>
+
                     </div>
                 </div>
             </div>
