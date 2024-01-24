@@ -35,7 +35,9 @@ const Login = () => {
         <div className="hero  min-h-screen dark:bg-slate-800  ">
             <div className="max-w-7xl mx-auto  md:flex justify-center">
                 <div className="hidden md:block">
-                    <img src="https://i.ibb.co/8jFYK8c/Lovepik-com-450092341-Flat-illustration-of-secure-login-in-editable-design-removebg-preview.png" alt="" />
+                    <img
+                        src="https://i.ibb.co/8jFYK8c/Lovepik-com-450092341-Flat-illustration-of-secure-login-in-editable-design-removebg-preview.png"
+                        alt="img" />
                 </div>
                 <div className="hero-content flex-col ">
 
@@ -47,21 +49,43 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text dark:text-white">Email</span>
                                 </label>
-                                <input type="email" placeholder="email" name="email" className="input  input-bordered rounded-none" required />
+                                <input
+                                    type="email"
+                                    placeholder="email"
+                                    name="email"
+                                    className="input  input-bordered rounded-none"
+                                    required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text dark:text-white">Password</span>
                                 </label>
-                                <input type="password" name="password" placeholder="password" className="input input-bordered rounded-none" required />
+                                <input
+                                    type="password"
+                                    name="password"
+                                    placeholder="password"
+                                    className="input input-bordered rounded-none"
+                                    required />
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <a href="#"
+                                        className="label-text-alt link link-hover">
+                                        Forgot password?
+                                    </a>
                                 </label>
                             </div>
                             <div className="form-control ">
-                                <button className="btn  text-white dark:bg-sky-500 bg-slate-800 dark:text-white border-none rounded-none">Login</button>
+                                <button
+                                    className="btn  text-white dark:bg-sky-500 bg-slate-800 dark:text-white border-none rounded-none">
+                                    Login
+                                </button>
                                 <div className="mt-3">
-                                    <p>You do not have an Account Please <Link to="/register" className="text-sky-500 text-2xl">Register</Link></p>
+                                    <p>You do not have an Account Please
+                                        <Link
+                                            to="/register"
+                                            className="text-sky-500 text-2xl">
+                                            Register
+                                        </Link>
+                                    </p>
                                 </div>
                                 <div className="text-center">
                                     <h1 className="text-red-500">{error}</h1>

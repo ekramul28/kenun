@@ -1,4 +1,6 @@
 import Button from "../../Components/Button/Button";
+import { FaArrowAltCircleRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const CollectionCard = () => {
     const watches = {
@@ -9,13 +11,6 @@ const CollectionCard = () => {
         "price": 299.99,
         "rating": 4.5,
         "description": "A timeless chronograph watch with a sleek design.",
-        "size": [
-            42,
-            43,
-            44,
-            45,
-            46
-        ],
         "brand": "Rolex",
         "gender": "men",
         "availability": "In Stock"
@@ -46,15 +41,17 @@ const CollectionCard = () => {
                 <figure>
                     <img className=' image-full object-cover w-full mx-auto' src={watches.image1} alt="Shoes" />
                 </figure>
-                <div className="card-body dark:bg-slate-900">
+                <div className="m-2  dark:bg-slate-900">
                     <h2 className="card-title">
                         <p>{watches.name}</p>
                         {/* <div className="badge badge-secondary">NEW</div> */}
                     </h2>
-                    <p>${watches.price}</p>
+                    <p className="my-2">${watches.price}</p>
                     <div className="flex justify-between items-center">
                         <div >
-                            <Button>Details</Button>
+                            <Link to="/collection/1">
+                                <Button className="flex justify-center items-center gap-2">Details<FaArrowAltCircleRight></FaArrowAltCircleRight></Button>
+                            </Link>
                         </div>
                         <div >
                             {

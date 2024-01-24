@@ -4,6 +4,7 @@ import Home from "../Page/home/Home";
 import Login from "../Page/Login/Login";
 import Register from "../Page/Register/Register";
 import Collection from "../Page/Collection/Collection";
+import CollectionDetails from "../Page/Collection/CollectionDetails";
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
             {
                 path: "/collection",
                 element: <Collection></Collection>
+            },
+            {
+                path: "/collection/:id",
+                element: <CollectionDetails></CollectionDetails>
             },
             {
                 path: "login",

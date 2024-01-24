@@ -99,13 +99,23 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text dark:text-white">Name</span>
                                     </label>
-                                    <input type="name" name="name" placeholder="Name" className="input  input-bordered rounded-none" required />
+                                    <input
+                                        type="name"
+                                        name="name"
+                                        placeholder="Name"
+                                        className="input  input-bordered rounded-none"
+                                        required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text dark:text-white">Email</span>
                                     </label>
-                                    <input type="email" placeholder="email" name="email" className="input  input-bordered rounded-none" required />
+                                    <input
+                                        type="email"
+                                        placeholder="email"
+                                        name="email"
+                                        className="input  input-bordered rounded-none"
+                                        required />
                                 </div>
 
 
@@ -113,14 +123,24 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text dark:text-white">Password</span>
                                     </label>
-                                    <input type="password" name="password" placeholder="password" className="input input-bordered rounded-none" required />
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        placeholder="password"
+                                        className="input input-bordered rounded-none"
+                                        required />
 
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text dark:text-white">Confirm Password</span>
                                     </label>
-                                    <input type="password" name="ConfirmPassword" placeholder="Confirm Password" className="input input-bordered rounded-none" required />
+                                    <input
+                                        type="password"
+                                        name="ConfirmPassword"
+                                        placeholder="Confirm Password"
+                                        className="input input-bordered rounded-none"
+                                        required />
 
                                 </div>
 
@@ -137,7 +157,14 @@ const Register = () => {
                                     <select name="division" className="select select-bordered w-full  input  rounded-none" onClick={handelDivision}>
                                         <option disabled selected required value="DEFAULT" >Select Your Division</option>
                                         {
-                                            division.map(division => <option key={division._id} className="text-black " value={division?.name} id={division?.id} >{division?.name}</option>)
+                                            division.map(division => (
+                                                <option
+                                                    key={division._id}
+                                                    className="text-black "
+                                                    value={division?.name}
+                                                    id={division?.id} >
+                                                    {division?.name}
+                                                </option>))
                                         }
 
                                     </select>
@@ -149,7 +176,13 @@ const Register = () => {
                                     <select name="district" className="select select-bordered w-full  input  rounded-none" onClick={handelDistrict}>
                                         <option disabled selected required>Select Your District</option>
                                         {
-                                            AllDistrict.map(district => <option key={district._id} value={district?.name} id={district.id}>{district?.name}</option>)
+                                            AllDistrict.map(district => (
+                                                <option
+                                                    key={district._id}
+                                                    value={district?.name}
+                                                    id={district.id}>
+                                                    {district?.name}
+                                                </option>))
                                         }
 
                                     </select>
@@ -161,7 +194,13 @@ const Register = () => {
                                     <select name="upazilas" className="select select-bordered w-full  input  rounded-none" >
                                         <option disabled selected required>Select Your upazilas</option>
                                         {
-                                            AllUpazilas.map(upazilas => <option key={upazilas._id} value={upazilas?.name} id={upazilas.id}>{upazilas?.name}</option>)
+                                            AllUpazilas.map(upazilas => (
+                                                <option
+                                                    key={upazilas._id}
+                                                    value={upazilas?.name}
+                                                    id={upazilas.id}>
+                                                    {upazilas?.name}
+                                                </option>))
                                         }
 
                                     </select>
@@ -171,7 +210,12 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text dark:text-white">imgUrl</span>
                                     </label>
-                                    <input type="file" placeholder="imgUrl" name="imgUrl" className="file-input  input-bordered rounded-none " required />
+                                    <input
+                                        type="file"
+                                        placeholder="imgUrl"
+                                        name="imgUrl"
+                                        className="file-input  input-bordered rounded-none "
+                                        required />
                                 </div>
 
                             </div>
@@ -180,10 +224,18 @@ const Register = () => {
                         <div className="form-control mt-6">
                             <button className="btn  text-white dark:bg-sky-500 bg-slate-800 dark:text-white border-none rounded-none">Register</button>
                             <div className="mt-3">
-                                <p className="text-xl dark:text-white">you have Account  please<Link to="/login" className=" text-2xl ml-3 text-sky-500">login</Link></p>
+                                <p className="text-xl dark:text-white">you have Account  please
+                                    <Link
+                                        to="/login"
+                                        className=" text-2xl ml-3 text-sky-500">
+                                        login
+                                    </Link>
+                                </p>
                             </div>
                             <div className="text-center">
-                                <h1 className="text-red-500">{registerError}</h1>
+                                <h1 className="text-red-500">
+                                    {registerError}
+                                </h1>
                             </div>
                         </div>
                     </form>
